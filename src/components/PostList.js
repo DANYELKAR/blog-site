@@ -1,11 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
 import ReactionButtons from "./ReactionButtons";
+import {
+  selectAllPosts,
+  getPostsStatus,
+  getPostsError,
+} from "../features/posts/postsSlice";
 
 const PostList = () => {
-  const posts = useSelector((state) => state.postsAbc);
+  const posts = useSelector(selectAllPosts);
 
   const orderedPosts = posts
     .slice()
